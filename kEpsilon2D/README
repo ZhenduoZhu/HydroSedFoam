@@ -1,0 +1,3 @@
+Copy kEpsilon2D.C and kEpsilon2D.H into /src/turbulenceModels/incompressible/RAS
+Replace "files" and "options" in /src/turbulenceModels/incompressible/RAS/Make
+Use wmake to compile it.
