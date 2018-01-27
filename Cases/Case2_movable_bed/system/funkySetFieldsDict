@@ -1,0 +1,30 @@
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "/home/zhu61/OpenFOAM/zhu61-2.4.0/run";
+    case            "MPMtest1";
+    instance        "system";
+    local           "";
+
+    class           dictionary;
+    object          funkySetFieldsDict;
+}
+
+expressions
+(
+	inith0
+	{
+		field h0;
+		expression "0.1+pow(sin(3.1416*(pos().x-300.0)/200.0),2.0)";
+                condition  "pos().x>=300.0 && pos().x<=500.0";
+		keepPatches true;
+	}
+        inith
+	{
+		field h;
+		expression "10.1-h0";
+		keepPatches true;
+	}
+);
