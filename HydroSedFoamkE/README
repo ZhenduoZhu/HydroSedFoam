@@ -1,1 +1,2 @@
 Copy this folder, HydroSedFoamkE, into /applications/solvers/incompressible
+Use wmake to compile it.
