@@ -14,47 +14,47 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+OpenFOAM need to be installed first. 
 
-```
-Give examples
-```
+More information on how to install OpenFOAM can be found here: https://openfoam.com/ and https://openfoam.org/
+
+Official OpenFOAM Repository is at https://github.com/OpenFOAM
 
 ### Compilation
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+1. Compile 2D k-epsilon turbulent model
 
 ```
-Give the example
+Copy the folder, kEpsilon2D, into /src/turbulenceModels/incompressible/RAS
+
+Replace files in /src/turbulenceModels/incompressible/RAS/Make with the ones in the kEpsilon2D folder
+
+Use wmake to compile it.
 ```
 
-And repeat
+2. Compile HydroSedFoam
 
 ```
-until finished
+Copy the folder, HydroSedFoamkE into /applications/solvers/incompressible
+
+Use wmake to compile it.
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+
 
 ### Running the Program
 
-Explain how to run the automated tests for this system
 
+Case studies are provided in the folder, Cases. There are three cases:
 
+Case 1: Meandering Channel Laboratory Experiments
 
+Case 2: Sediment Transport and Bed Morphology
 
-## Testing
+Case 3: Kalamazoo River, Michigan, USA
 
+More information can be found in the reference below.
 
-
-## Notes
-
-
-
-
-## TODO
 
 
 ## License
@@ -71,7 +71,7 @@ HydroSedFoam: A new parallelized two-dimensional hydrodynamic, sediment transpor
 
 **Corresponding Author**: Zhenduo Zhu (zhenduoz@buffalo.edu)
 
-**Journal**:
+**Journal**: Computers & Geosciences
 
 **DOI Number of Manuscript**: 
 
