@@ -1,0 +1,37 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      gravitationalProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+g            g           [0 1 -2 0 0 0 0]  (0 0 -9.81);
+rotating     false;
+Omega        Omega       [0 0 -1 0 0 0 0]  (0 0 0);
+roughness    false;
+Chezy2       Chezy2      [0 1 -2 0 0 0 0]  981.0;
+viscosity    viscosity   [0 2 -1 0 0 0 0]  1.0E-6;
+mviscosity   mviscosity  [0 2 -1 0 0 0 0]  1.0E-6;
+sediment     true;
+bedload      true;
+suspend      false;
+D50          D50         [0 1 0 0 0 0 0]  1.0E-4;	//sediment size d50
+taucb        taucb       [0 0 0 0 0 0 0]  0.0;	//critical bed shear stress for bedload (Meyer-Peter and Muller)
+subgrav      subgrav     [0 0 0 0 0 0 0]  1.65;		//submerged specific gravity of sediment
+geomorph     true;
+porobed      porobed     [0 0 0 0 0 0 0]  0.4;		//bed porosity
+accelbed     accelbed    [0 0 0 0 0 0 0]  1;		//acceleration factor for bed change
+wdeposit     wdeposit    [0 1 -1 0 0 0 0]  0.9E-3;
+kepsilonmodel false;
+zerowallcell  false;
+
+// ************************************************************************* //
