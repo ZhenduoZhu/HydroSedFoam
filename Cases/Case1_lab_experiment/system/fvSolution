@@ -1,0 +1,117 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+solvers
+{
+    h
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-6;
+        relTol          0;
+    }
+
+    hFinal
+    {
+        $h;
+        relTol          0;
+    }
+
+    hU
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-05;
+        relTol          0.1;
+    }
+
+    hUFinal
+    {
+        $hU;
+        relTol          0;
+    }
+	
+	C
+    {
+        solver          PBiCG;
+        preconditioner  DILU;
+        tolerance       1e-06;
+        relTol          0;
+    }
+	
+	h0
+    {
+        solver          PCG;
+        preconditioner  DIC;
+        tolerance       1e-6;
+        relTol          0;
+    }
+	
+    "(U|k|epsilon)"
+    {
+	solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-06;
+        relTol          0;
+    }
+
+    "(U|k|epsilon)Final"
+    {
+        $U;
+        relTol          0;
+    }
+}
+
+PIMPLE
+{
+    nOuterCorrectors 10;
+    nCorrectors      1;
+    nNonOrthogonalCorrectors 0;
+
+    residualControl
+    {
+        hU
+        {
+                tolerance  1e-5;
+                relTol      0;
+        }
+        h
+        {
+                tolerance  1e-5;
+                relTol      0;
+        }
+        h0
+        {
+                tolerance  1e-5;
+                relTol      0;
+        }
+     }
+
+    momentumPredictor yes;
+}
+
+relaxationFactors
+{
+    equations
+    {
+        hU              0.7;
+	h               0.7;
+        k               0.7;
+        epsilon         0.7;
+        R               0.7;
+    }
+}
+// ************************************************************************* //
