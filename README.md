@@ -14,7 +14,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-OpenFOAM need to be installed first. 
+OpenFOAM 2.3.0 need to be installed first. This model was developed and tested with OpenFOAM 2.3.0. Please note that other versions of OpenFOAM may not have the same organization of folders and files so you may not find the folders metioned below with another version.
+
+Information on OpenFOAM 2.3.0 can be found here: https://openfoam.org/release/2-3-0/
 
 More information on how to install OpenFOAM can be found here: https://openfoam.com/ and https://openfoam.org/
 
