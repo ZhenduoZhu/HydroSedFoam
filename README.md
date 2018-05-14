@@ -26,22 +26,22 @@ Official OpenFOAM Repository is at https://github.com/OpenFOAM
 
 1. Compile 2D k-epsilon turbulent model
 
-```
-Copy the folder, kEpsilon2D, into /src/turbulenceModels/incompressible/RAS
-
-Replace files in /src/turbulenceModels/incompressible/RAS/Make with the ones in the kEpsilon2D folder
-
-Use wmake to compile it.
-```
+ * Copy the folder, kEpsilon2D, into `/src/TurbulenceModels/turbulenceModels/incompressible/RAS`
+ * Replace files in `/src/TurbulenceModels/turbulenceModels/incompressible/RAS/Make` with the ones in the kEpsilon2D folder
+ * Use wmake to compile it.
 
 2. Compile HydroSedFoam
 
-```
-Copy the folder, HydroSedFoamkE into /applications/solvers/incompressible
+ * Copy the folder, HydroSedFoamkE into `/applications/solvers/incompressible`
+ * Use wmake to compile it.
 
-Use wmake to compile it.
-```
+If you are using the OpenFOAM docker image, the above directories can be found in `/opt/OpenFOAM/OpenFOAM-v1712/`. You may need to login to the docker image as root to compile. To do so, edit `startOpenFoam` to read:
 
+    docker exec -u 0 -it of_v1712 /bin/bash -rcfile /opt/OpenFOAM/setImage_v1712.sh
+    
+instead of
+
+    docker exec -it of_v1712 /bin/bash -rcfile /opt/OpenFOAM/setImage_v1712.sh
 
 
 ### Running the Program
@@ -49,11 +49,9 @@ Use wmake to compile it.
 
 Case studies are provided in the folder, Cases. There are three cases:
 
-Case 1: Meandering Channel Laboratory Experiments
-
-Case 2: Sediment Transport and Bed Morphology
-
-Case 3: Kalamazoo River, Michigan, USA
+ * Case 1: Meandering Channel Laboratory Experiments
+ * Case 2: Sediment Transport and Bed Morphology
+ * Case 3: Kalamazoo River, Michigan, USA
 
 More information can be found in the reference below.
 
